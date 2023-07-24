@@ -83,14 +83,14 @@ sed -i 's/quiet/pci=noaer/g' /etc/default/grub
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S --noconfirm adobe-source-code-pro-fonts arandr atool bat bc ctags curl dash \
-  dosfstools dunst exfat-utils feh ffmpeg ffmpegthumbnailer fzf git gnome-epub-thumbnailer \
-  gnome-keyring imagemagick inetutils jq libffi libnotify libyaml man-db mediainfo mlocate \
-  moreutils mpv ncdu networkmanager noto-fonts noto-fonts-emoji ntfs-3g openssh pacman-contrib \
-  pipewire-pulse polkit pulsemixer ripgrep rsync scrot slock stow sxiv syncthing transmission-cli \
-  ttf-dejavu ttf-linux-libertine unclutter unrar unzip vim wireplumber xclip xcompmgr xdotool \
-  xorg-server xorg-xbacklight xorg-xev xorg-xinit xorg-xprop xorg-xsetroot xorg-xwininfo xwallpaper \
-  yt-dlp zathura zathura-cb zathura-pdf-mupdf zip
+pacman -S --noconfirm adobe-source-code-pro-fonts arandr atool bat bc ctags curl dash dosfstools \
+  dunst exfat-utils feh ffmpeg ffmpegthumbnailer fzf git gnome-epub-thumbnailer gnome-keyring \
+  imagemagick inetutils jq libffi libnotify libyaml man-db mediainfo mlocate moreutils mpv ncdu \
+  networkmanager noto-fonts noto-fonts-emoji ntfs-3g openssh pacman-contrib pipewire-pulse polkit \
+  pulsemixer ripgrep rsync scrot slock stow sxiv syncthing transmission-cli ttf-dejavu \
+  ttf-linux-libertine unclutter unrar unzip vim wireplumber xclip xcompmgr xdotool xorg-server \
+  xorg-xbacklight xorg-xev xorg-xinit xorg-xprop xorg-xsetroot xorg-xwininfo xwallpaper yt-dlp \
+  zathura zathura-cb zathura-pdf-mupdf zip
 
 systemctl enable NetworkManager
 rm /bin/sh
@@ -111,7 +111,7 @@ exit
 
 #part3
 printf '\033c'
-mkdir -p ~/.cache ~/.config ~/.local ~/proj
+mkdir -p ~/.cache ~/.config ~/.local/bin ~/.local/share ~/.vim ~/proj
 rm -f ~/.bashrc ~/.bash_profile ~/.bash_logout
 
 cd ~/proj
@@ -141,8 +141,8 @@ sudo curl -fLo /etc/keyd/default.conf --create-dirs \
 
 # paru: AUR helper
 git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -sri && cd .. && rm -rf paru-bin
-paru -S --noconfirm asdf-vm diff-so-fancy-git gtk-theme-arc-gruvbox-git \
-  htop-vim keyd-git librewolf-bin simple-mtpfs task-spooler
+paru -S --noconfirm asdf-vm diff-so-fancy-git gtk-theme-arc-gruvbox-git htop-vim keyd-git \
+  librewolf-bin simple-mtpfs task-spooler
 
 sudo systemctl enable keyd
 mkdir -p dl doc pics music
